@@ -1,58 +1,172 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-ZA">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101828">
-<title>MeGa MaLl | Online Shopping Centre</title>
-<style>
-:root{--ink:#101828;--blue:#1677ff;--pale:#eef5ff;--muted:#667085;--line:#e5eaf2}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#f7f9fc}
-header{background:#101828;color:white;padding:18px max(18px,calc((100% - 1120px)/2));display:flex;align-items:center;gap:14px;justify-content:space-between;flex-wrap:wrap}
-.brand{font-size:1.45rem;font-weight:900;letter-spacing:-.7px}.brand span{color:#57a1ff}
-header small{color:#d0d5dd}.cartbtn,.primary{border:0;border-radius:12px;background:var(--blue);color:white;padding:11px 15px;font-weight:750;cursor:pointer}
-main{max-width:1120px;margin:auto;padding:22px 16px 48px}.hero{background:linear-gradient(120deg,#10213f,#1677ff);border-radius:22px;padding:28px;color:white;display:grid;grid-template-columns:1.3fr .7fr;gap:20px;align-items:center}
-.hero h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.04;margin:8px 0 12px}.hero p{max-width:550px;color:#e7f0ff}.hero .tag{font-size:.78rem;font-weight:800;letter-spacing:1.4px;text-transform:uppercase}.heroart{font-size:6rem;text-align:center;filter:drop-shadow(0 12px 14px #001b4d66)}
-.searchrow{display:flex;gap:10px;margin:22px 0}.searchrow input{flex:1;min-width:0;padding:13px 15px;border:1px solid var(--line);border-radius:12px;font-size:1rem;background:white}
-h2{font-size:1.35rem;margin:24px 0 12px}.categories{display:flex;gap:9px;overflow:auto;padding-bottom:5px}.cat{border:1px solid var(--line);background:white;border-radius:999px;padding:10px 14px;white-space:nowrap;cursor:pointer}.cat.active{background:var(--ink);color:white}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card{background:white;border:1px solid var(--line);border-radius:16px;overflow:hidden}.pic{height:150px;display:grid;place-items:center;font-size:3.6rem;background:var(--pale)}.info{padding:13px}.shop{font-size:.78rem;color:var(--muted)}.name{font-weight:800;margin:5px 0}.price{font-size:1.1rem;font-weight:900;margin:8px 0}.info button{width:100%;margin-top:5px}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:10px}.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:24px}.panel p{color:var(--muted);margin-top:4px}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.formgrid input,.formgrid select,.formgrid textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:10px;font:inherit}.formgrid textarea{grid-column:1/-1}.full{grid-column:1/-1}.muted{color:var(--muted);font-size:.88rem}.cartline{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:10px 0}.hidden{display:none}.notice{background:#fff7e6;border:1px solid #ffd78a;padding:12px;border-radius:12px;color:#7a4d00;font-size:.9rem;margin-top:14px}footer{text-align:center;padding:24px;color:var(--muted);font-size:.88rem}
-@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}.heroart{display:none}.pic{height:125px}}
-@media(max-width:430px){.grid{gap:9px}.info{padding:10px}.pic{font-size:2.8rem}.brand{font-size:1.2rem}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a33">
+  <title>MeGa MaLl | South African Online Shopping Centre</title>
+  <style>
+    :root{--navy:#101a33;--blue:#1769e8;--pale:#f4f7fc;--ink:#172033;--muted:#657187;--line:#e2e8f0}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:var(--pale);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+    header{background:var(--navy);color:#fff;padding:17px max(20px,calc((100% - 1120px)/2));display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .brand{font-size:25px;font-weight:800;letter-spacing:-.5px}.brand span{color:#64a1ff}
+    .tagline{color:#d5deee;margin-top:5px}
+    nav{display:flex;gap:10px;flex-wrap:wrap}
+    nav a,.btn{display:inline-block;text-decoration:none;border:0;border-radius:13px;padding:12px 17px;font-weight:700;cursor:pointer}
+    nav a{color:white;background:#263653}.btn{background:var(--blue);color:white}
+    main{max-width:1120px;margin:28px auto;padding:0 18px}
+    .hero{background:linear-gradient(115deg,#142b55,#176fe9);color:#fff;border-radius:25px;padding:clamp(28px,6vw,58px);display:grid;grid-template-columns:1.4fr .8fr;gap:24px;align-items:center}
+    .eyebrow{font-size:13px;letter-spacing:1.5px;font-weight:800}.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.04;margin:15px 0}.hero p{font-size:19px;line-height:1.5;color:#e6efff;max-width:600px}
+    .hero-art{font-size:clamp(70px,13vw,130px);text-align:center}
+    .search{display:flex;gap:10px;margin:24px 0}.search input{flex:1;min-width:0;padding:16px;border:1px solid var(--line);border-radius:14px;font-size:16px}
+    h2{font-size:27px;margin:32px 0 16px}
+    .chips{display:flex;gap:10px;overflow:auto;padding-bottom:5px}.chip{white-space:nowrap;border:1px solid var(--line);background:white;border-radius:30px;padding:12px 18px}
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .product,.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:19px}
+    .product .emoji{font-size:48px;background:#edf3ff;border-radius:14px;text-align:center;padding:22px}
+    .product h3{margin:14px 0 6px}.price{font-weight:800;color:#145ac6;font-size:19px}
+    .section-intro{color:var(--muted);line-height:1.55;margin-top:-7px}
+    .seller{display:grid;grid-template-columns:.85fr 1.15fr;gap:22px;align-items:start}
+    .seller-info{background:#122344;color:white;border-radius:20px;padding:25px}
+    .seller-info p{color:#dce7fa;line-height:1.6}.seller-info li{margin:12px 0;color:#e8effb}
+    form{display:grid;gap:13px}
+    label{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+    input,select,textarea{width:100%;border:1px solid #cfd8e5;border-radius:11px;padding:13px;font:inherit;background:#fff}
+    textarea{min-height:95px;resize:vertical}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .notice{background:#fff8e6;border:1px solid #f3d58c;border-radius:12px;padding:12px;color:#684b0c;font-size:13px;line-height:1.45}
+    .message{display:none;background:#eaf8ef;border:1px solid #9bd7ad;border-radius:12px;padding:13px;color:#175b2c;line-height:1.5}
+    footer{margin-top:42px;background:var(--navy);color:#d7e1f1;padding:28px 18px;text-align:center;line-height:1.6}
+    @media(max-width:760px){.hero,.seller{grid-template-columns:1fr}.hero-art{display:none}.products{grid-template-columns:1fr 1fr}}
+    @media(max-width:480px){.products,.two{grid-template-columns:1fr}.search{flex-wrap:wrap}.search .btn{width:100%}nav{width:100%}}
+  </style>
 </head>
 <body>
-<header><div><div class="brand">🛍️ MeGa <span>MaLl</span></div><small>Your online shopping centre</small></div><button class="cartbtn" onclick="toggleCart()">🛒 Cart (<span id="cartCount">0</span>)</button></header>
+<header>
+  <div>
+    <div class="brand">🛍️ MeGa <span>MaLl</span></div>
+    <div class="tagline">One centre. Many stores. Proudly South African.</div>
+  </div>
+  <nav>
+    <a href="#products">Shop</a>
+    <a href="#sell">Become a seller</a>
+  </nav>
+</header>
+
 <main>
-<section class="hero"><div><div class="tag">One centre. Many stores.</div><h1>Find your next<br>favourite thing.</h1><p>Explore products from different independent sellers, all in one place. Welcome to MeGa MaLl.</p><button class="primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Explore products ↓</button></div><div class="heroart">🏬🛍️</div></section>
-<div class="searchrow"><input id="search" placeholder="Search products or stores…" oninput="renderProducts()"><button class="primary" onclick="renderProducts()">Search</button></div>
-<h2>Shop by category</h2><div class="categories" id="categories"></div>
-<div class="sectionhead"><h2 id="products">Popular finds</h2><span class="muted">Demo products</span></div><div class="grid" id="productGrid"></div>
-<section id="cartPanel" class="panel hidden"><div class="sectionhead"><h2 style="margin:0">Your cart</h2><button onclick="toggleCart()">Close</button></div><div id="cartItems"></div><div id="cartTotals"></div><p class="muted">Demo checkout only — no payment is collected.</p></section>
-<section class="panel"><h2 style="margin-top:0">Open a store on MeGa MaLl</h2><p>Seller applications are collected in this demo screen. It does not yet create a live seller account.</p>
-<form id="sellerForm" class="formgrid"><input required id="sellerName" placeholder="Your name"><input required id="storeName" placeholder="Store name"><input required type="email" id="sellerEmail" placeholder="Email address"><select id="sellerCategory"><option>Fashion</option><option>Electronics</option><option>Home & Furniture</option><option>Beauty</option><option>Sports</option><option>Groceries</option><option>Other</option></select><textarea id="sellerAbout" rows="2" placeholder="What would you like to sell?"></textarea><button class="primary full" type="submit">Preview seller application</button></form><div id="sellerResult" class="muted"></div></section>
-<section class="panel"><h2 style="margin-top:0">How MeGa MaLl earns</h2><p>Example commission calculator: change the sale amount and commission rate to estimate the marketplace fee.</p><div class="formgrid"><input id="saleAmount" type="number" min="0" value="500" placeholder="Sale amount (R)" oninput="calcCommission()"><input id="commissionRate" type="number" min="0" max="100" value="10" placeholder="Commission (%)" oninput="calcCommission()"></div><h2 id="commissionOutput">Marketplace commission: R50.00</h2><p class="muted">Illustration only. Actual payments, seller payouts, refunds and commission accounting must be configured before launch.</p></section>
-<div class="notice"><b>Starter demo:</b> This is a front-end prototype. Cart data is temporary, seller applications are not sent to a server, and there is no real login, database, checkout, shipping integration or live marketplace payout system yet.</div>
-</main><footer>© <span id="year"></span> MeGa MaLl · One centre, many stores.</footer>
+  <section class="hero">
+    <div>
+      <div class="eyebrow">SOUTH AFRICAN ONLINE SHOPPING CENTRE</div>
+      <h1>Find your next favourite thing.</h1>
+      <p>Explore products from independent sellers across South Africa, all in one place. Welcome to MeGa MaLl.</p>
+      <a class="btn" href="#products">Explore products ↓</a>
+    </div>
+    <div class="hero-art" aria-hidden="true">🛒📦</div>
+  </section>
+
+  <div class="search">
+    <input id="searchBox" type="search" placeholder="Search products or stores..." aria-label="Search products">
+    <button class="btn" type="button" onclick="searchProducts()">Search</button>
+  </div>
+
+  <h2>Shop by category</h2>
+  <div class="chips">
+    <span class="chip">All</span><span class="chip">Fashion</span><span class="chip">Electronics</span>
+    <span class="chip">Home &amp; Furniture</span><span class="chip">Beauty</span><span class="chip">Sports</span>
+  </div>
+
+  <section id="products">
+    <h2>Popular finds</h2>
+    <p class="section-intro">Sample products for the website demonstration. These are not live listings.</p>
+    <div class="products" id="productGrid">
+      <article class="product" data-search="sneakers fashion shoes">
+        <div class="emoji">👟</div><h3>Everyday Sneakers</h3><p class="price">R499.00</p><p class="section-intro">Sample fashion listing</p>
+      </article>
+      <article class="product" data-search="headphones electronics audio">
+        <div class="emoji">🎧</div><h3>Wireless Headphones</h3><p class="price">R799.00</p><p class="section-intro">Sample electronics listing</p>
+      </article>
+      <article class="product" data-search="lamp home furniture decor">
+        <div class="emoji">💡</div><h3>Modern Desk Lamp</h3><p class="price">R349.00</p><p class="section-intro">Sample home listing</p>
+      </article>
+    </div>
+    <p id="noResults" class="section-intro" style="display:none">No matching demo products found.</p>
+  </section>
+
+  <section id="sell">
+    <h2>Open your store on MeGa MaLl</h2>
+    <p class="section-intro">Are you a South African business or seller? Start by sending an expression of interest.</p>
+    <div class="seller">
+      <aside class="seller-info">
+        <h3>Become a MeGa MaLl seller</h3>
+        <p>Our goal is to bring independent South African sellers together in one online shopping centre.</p>
+        <ul>
+          <li>Showcase your store and products</li>
+          <li>Reach shoppers across South Africa</li>
+          <li>Get ready for future seller tools and order management</li>
+        </ul>
+        <p><strong>Currency:</strong> South African rand (ZAR / R)<br><strong>Launch market:</strong> South Africa</p>
+      </aside>
+
+      <div class="panel">
+        <form id="sellerForm">
+          <div class="two">
+            <div><label for="shopName">Proposed store name *</label><input id="shopName" name="shopName" required maxlength="70" placeholder="e.g. Cape Style Store"></div>
+            <div><label for="category">Main product category *</label>
+              <select id="category" name="category" required>
+                <option value="">Choose category</option><option>Fashion</option><option>Electronics</option><option>Home &amp; Furniture</option><option>Beauty</option><option>Sports &amp; Outdoors</option><option>Food &amp; Groceries</option><option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="two">
+            <div><label for="province">Province *</label>
+              <select id="province" name="province" required>
+                <option value="">Choose province</option><option>Eastern Cape</option><option>Free State</option><option>Gauteng</option><option>KwaZulu-Natal</option><option>Limpopo</option><option>Mpumalanga</option><option>Northern Cape</option><option>North West</option><option>Western Cape</option>
+              </select>
+            </div>
+            <div><label for="sellerType">Seller type *</label>
+              <select id="sellerType" name="sellerType" required><option value="">Choose one</option><option>Registered business</option><option>Small business</option><option>Individual seller</option></select>
+            </div>
+          </div>
+          <div><label for="description">What would you like to sell? *</label><textarea id="description" name="description" required maxlength="500" placeholder="Briefly describe your products..."></textarea></div>
+          <div class="notice"><strong>Demo form only:</strong> Do not enter real personal, banking or identity details. This sample form does not send or save applications. A secure application system will be connected in a later development phase.</div>
+          <button class="btn" type="submit">Preview seller application</button>
+          <div class="message" id="formMessage" role="status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>🛍️ MeGa MaLl</strong><br>
+  South Africa first · Prices shown in South African rand (R)<br>
+  <small>Demonstration website — sample products and seller form only. No live checkout or payments.</small>
+</footer>
+
 <script>
-const cats=['All','Fashion','Electronics','Home & Furniture','Beauty','Sports','Groceries'];
-const products=[
-{id:1,name:'Everyday Sneakers',shop:'Urban Steps',category:'Fashion',price:649,emoji:'👟'},
-{id:2,name:'Wireless Headphones',shop:'Tech Corner',category:'Electronics',price:899,emoji:'🎧'},
-{id:3,name:'Cosy Lounge Cushion',shop:'Home Haven',category:'Home & Furniture',price:199,emoji:'🛋️'},
-{id:4,name:'Skin Care Set',shop:'Glow Studio',category:'Beauty',price:329,emoji:'🧴'},
-{id:5,name:'Training Football',shop:'Play Zone',category:'Sports',price:249,emoji:'⚽'},
-{id:6,name:'Smart Watch',shop:'Tech Corner',category:'Electronics',price:799,emoji:'⌚'},
-{id:7,name:'Classic Handbag',shop:'Urban Steps',category:'Fashion',price:459,emoji:'👜'},
-{id:8,name:'Kitchen Essentials',shop:'Home Haven',category:'Home & Furniture',price:279,emoji:'🍳'}
-];
-let selected='All',cart=[];
-const money=n=>'R '+Number(n).toLocaleString('en-ZA',{minimumFractionDigits:2,maximumFractionDigits:2});
-function renderCats(){document.getElementById('categories').innerHTML=cats.map(c=>`<button class="cat ${selected===c?'active':''}" onclick="selected='${c}';renderCats();renderProducts()">${c}</button>`).join('')}
-function renderProducts(){const q=document.getElementById('search').value.toLowerCase();let list=products.filter(p=>(selected==='All'||p.category===selected)&&(`${p.name} ${p.shop} ${p.category}`.toLowerCase().includes(q)));document.getElementById('productGrid').innerHTML=list.length?list.map(p=>`<article class="card"><div class="pic">${p.emoji}</div><div class="info"><div class="shop">${p.shop} · ${p.category}</div><div class="name">${p.name}</div><div class="price">${money(p.price)}</div><button class="primary" onclick="addCart(${p.id})">Add to cart</button></div></article>`).join(''):'<p>No products match your search yet.</p>'}
-function addCart(id){cart.push(products.find(p=>p.id===id));document.getElementById('cartCount').textContent=cart.length}
-function toggleCart(){const panel=document.getElementById('cartPanel');panel.classList.toggle('hidden');renderCart();if(!panel.classList.contains('hidden'))panel.scrollIntoView({behavior:'smooth',block:'start'})}
-function renderCart(){const items=document.getElementById('cartItems');items.innerHTML=cart.length?cart.map((p,i)=>`<div class="cartline"><span>${p.emoji} ${p.name}</span><span>${money(p.price)} <button onclick="cart.splice(${i},1);document.getElementById('cartCount').textContent=cart.length;renderCart()">×</button></span></div>`).join(''):'<p>Your cart is empty.</p>';document.getElementById('cartTotals').innerHTML=cart.length?`<h3>Total: ${money(cart.reduce((s,p)=>s+p.price,0))}</h3>`:''}
-document.getElementById('sellerForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('sellerResult').innerHTML=`<p><b>Application preview ready.</b><br>Name: ${escapeHtml(document.getElementById('sellerName').value)} · Store: ${escapeHtml(document.getElementById('storeName').value)} · Category: ${escapeHtml(document.getElementById('sellerCategory').value)}<br>This preview has not been submitted online.</p>`});
-function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function calcCommission(){const amount=Math.max(0,Number(document.getElementById('saleAmount').value)||0),rate=Math.min(100,Math.max(0,Number(document.getElementById('commissionRate').value)||0));document.getElementById('commissionOutput').textContent='Marketplace commission: '+money(amount*rate/100)}
-document.getElementById('year').textContent=new Date().getFullYear();renderCats();renderProducts();calcCommission();
-</script></body></html>
+  function searchProducts(){
+    const term=document.getElementById('searchBox').value.trim().toLowerCase();
+    const cards=[...document.querySelectorAll('.product')];
+    let shown=0;
+    cards.forEach(card=>{
+      const match=!term || (card.dataset.search+' '+card.innerText).toLowerCase().includes(term);
+      card.style.display=match?'':'none'; if(match) shown++;
+    });
+    document.getElementById('noResults').style.display=shown?'none':'block';
+  }
+  document.getElementById('searchBox').addEventListener('keydown',e=>{if(e.key==='Enter')searchProducts()});
+  document.getElementById('sellerForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const name=document.getElementById('shopName').value.trim();
+    const category=document.getElementById('category').value;
+    const province=document.getElementById('province').value;
+    const type=document.getElementById('sellerType').value;
+    const description=document.getElementById('description').value.trim();
+    document.getElementById('formMessage').style.display='block';
+    document.getElementById('formMessage').textContent=
+      'Demo preview created for "'+name+'" ('+category+', '+province+', '+type+'). No application has been sent or stored. This is a website demonstration only.';
+  });
+</script>
+</body>
+</html>
