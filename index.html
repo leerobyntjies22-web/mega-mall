@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101828">
+<title>MeGa MaLl | Online Shopping Centre</title>
+<style>
+:root{--ink:#101828;--blue:#1677ff;--pale:#eef5ff;--muted:#667085;--line:#e5eaf2}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#f7f9fc}
+header{background:#101828;color:white;padding:18px max(18px,calc((100% - 1120px)/2));display:flex;align-items:center;gap:14px;justify-content:space-between;flex-wrap:wrap}
+.brand{font-size:1.45rem;font-weight:900;letter-spacing:-.7px}.brand span{color:#57a1ff}
+header small{color:#d0d5dd}.cartbtn,.primary{border:0;border-radius:12px;background:var(--blue);color:white;padding:11px 15px;font-weight:750;cursor:pointer}
+main{max-width:1120px;margin:auto;padding:22px 16px 48px}.hero{background:linear-gradient(120deg,#10213f,#1677ff);border-radius:22px;padding:28px;color:white;display:grid;grid-template-columns:1.3fr .7fr;gap:20px;align-items:center}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.04;margin:8px 0 12px}.hero p{max-width:550px;color:#e7f0ff}.hero .tag{font-size:.78rem;font-weight:800;letter-spacing:1.4px;text-transform:uppercase}.heroart{font-size:6rem;text-align:center;filter:drop-shadow(0 12px 14px #001b4d66)}
+.searchrow{display:flex;gap:10px;margin:22px 0}.searchrow input{flex:1;min-width:0;padding:13px 15px;border:1px solid var(--line);border-radius:12px;font-size:1rem;background:white}
+h2{font-size:1.35rem;margin:24px 0 12px}.categories{display:flex;gap:9px;overflow:auto;padding-bottom:5px}.cat{border:1px solid var(--line);background:white;border-radius:999px;padding:10px 14px;white-space:nowrap;cursor:pointer}.cat.active{background:var(--ink);color:white}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card{background:white;border:1px solid var(--line);border-radius:16px;overflow:hidden}.pic{height:150px;display:grid;place-items:center;font-size:3.6rem;background:var(--pale)}.info{padding:13px}.shop{font-size:.78rem;color:var(--muted)}.name{font-weight:800;margin:5px 0}.price{font-size:1.1rem;font-weight:900;margin:8px 0}.info button{width:100%;margin-top:5px}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:10px}.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:24px}.panel p{color:var(--muted);margin-top:4px}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.formgrid input,.formgrid select,.formgrid textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:10px;font:inherit}.formgrid textarea{grid-column:1/-1}.full{grid-column:1/-1}.muted{color:var(--muted);font-size:.88rem}.cartline{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:10px 0}.hidden{display:none}.notice{background:#fff7e6;border:1px solid #ffd78a;padding:12px;border-radius:12px;color:#7a4d00;font-size:.9rem;margin-top:14px}footer{text-align:center;padding:24px;color:var(--muted);font-size:.88rem}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}.heroart{display:none}.pic{height:125px}}
+@media(max-width:430px){.grid{gap:9px}.info{padding:10px}.pic{font-size:2.8rem}.brand{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<header><div><div class="brand">🛍️ MeGa <span>MaLl</span></div><small>Your online shopping centre</small></div><button class="cartbtn" onclick="toggleCart()">🛒 Cart (<span id="cartCount">0</span>)</button></header>
+<main>
+<section class="hero"><div><div class="tag">One centre. Many stores.</div><h1>Find your next<br>favourite thing.</h1><p>Explore products from different independent sellers, all in one place. Welcome to MeGa MaLl.</p><button class="primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Explore products ↓</button></div><div class="heroart">🏬🛍️</div></section>
+<div class="searchrow"><input id="search" placeholder="Search products or stores…" oninput="renderProducts()"><button class="primary" onclick="renderProducts()">Search</button></div>
+<h2>Shop by category</h2><div class="categories" id="categories"></div>
+<div class="sectionhead"><h2 id="products">Popular finds</h2><span class="muted">Demo products</span></div><div class="grid" id="productGrid"></div>
+<section id="cartPanel" class="panel hidden"><div class="sectionhead"><h2 style="margin:0">Your cart</h2><button onclick="toggleCart()">Close</button></div><div id="cartItems"></div><div id="cartTotals"></div><p class="muted">Demo checkout only — no payment is collected.</p></section>
+<section class="panel"><h2 style="margin-top:0">Open a store on MeGa MaLl</h2><p>Seller applications are collected in this demo screen. It does not yet create a live seller account.</p>
+<form id="sellerForm" class="formgrid"><input required id="sellerName" placeholder="Your name"><input required id="storeName" placeholder="Store name"><input required type="email" id="sellerEmail" placeholder="Email address"><select id="sellerCategory"><option>Fashion</option><option>Electronics</option><option>Home & Furniture</option><option>Beauty</option><option>Sports</option><option>Groceries</option><option>Other</option></select><textarea id="sellerAbout" rows="2" placeholder="What would you like to sell?"></textarea><button class="primary full" type="submit">Preview seller application</button></form><div id="sellerResult" class="muted"></div></section>
+<section class="panel"><h2 style="margin-top:0">How MeGa MaLl earns</h2><p>Example commission calculator: change the sale amount and commission rate to estimate the marketplace fee.</p><div class="formgrid"><input id="saleAmount" type="number" min="0" value="500" placeholder="Sale amount (R)" oninput="calcCommission()"><input id="commissionRate" type="number" min="0" max="100" value="10" placeholder="Commission (%)" oninput="calcCommission()"></div><h2 id="commissionOutput">Marketplace commission: R50.00</h2><p class="muted">Illustration only. Actual payments, seller payouts, refunds and commission accounting must be configured before launch.</p></section>
+<div class="notice"><b>Starter demo:</b> This is a front-end prototype. Cart data is temporary, seller applications are not sent to a server, and there is no real login, database, checkout, shipping integration or live marketplace payout system yet.</div>
+</main><footer>© <span id="year"></span> MeGa MaLl · One centre, many stores.</footer>
+<script>
+const cats=['All','Fashion','Electronics','Home & Furniture','Beauty','Sports','Groceries'];
+const products=[
+{id:1,name:'Everyday Sneakers',shop:'Urban Steps',category:'Fashion',price:649,emoji:'👟'},
+{id:2,name:'Wireless Headphones',shop:'Tech Corner',category:'Electronics',price:899,emoji:'🎧'},
+{id:3,name:'Cosy Lounge Cushion',shop:'Home Haven',category:'Home & Furniture',price:199,emoji:'🛋️'},
+{id:4,name:'Skin Care Set',shop:'Glow Studio',category:'Beauty',price:329,emoji:'🧴'},
+{id:5,name:'Training Football',shop:'Play Zone',category:'Sports',price:249,emoji:'⚽'},
+{id:6,name:'Smart Watch',shop:'Tech Corner',category:'Electronics',price:799,emoji:'⌚'},
+{id:7,name:'Classic Handbag',shop:'Urban Steps',category:'Fashion',price:459,emoji:'👜'},
+{id:8,name:'Kitchen Essentials',shop:'Home Haven',category:'Home & Furniture',price:279,emoji:'🍳'}
+];
+let selected='All',cart=[];
+const money=n=>'R '+Number(n).toLocaleString('en-ZA',{minimumFractionDigits:2,maximumFractionDigits:2});
+function renderCats(){document.getElementById('categories').innerHTML=cats.map(c=>`<button class="cat ${selected===c?'active':''}" onclick="selected='${c}';renderCats();renderProducts()">${c}</button>`).join('')}
+function renderProducts(){const q=document.getElementById('search').value.toLowerCase();let list=products.filter(p=>(selected==='All'||p.category===selected)&&(`${p.name} ${p.shop} ${p.category}`.toLowerCase().includes(q)));document.getElementById('productGrid').innerHTML=list.length?list.map(p=>`<article class="card"><div class="pic">${p.emoji}</div><div class="info"><div class="shop">${p.shop} · ${p.category}</div><div class="name">${p.name}</div><div class="price">${money(p.price)}</div><button class="primary" onclick="addCart(${p.id})">Add to cart</button></div></article>`).join(''):'<p>No products match your search yet.</p>'}
+function addCart(id){cart.push(products.find(p=>p.id===id));document.getElementById('cartCount').textContent=cart.length}
+function toggleCart(){const panel=document.getElementById('cartPanel');panel.classList.toggle('hidden');renderCart();if(!panel.classList.contains('hidden'))panel.scrollIntoView({behavior:'smooth',block:'start'})}
+function renderCart(){const items=document.getElementById('cartItems');items.innerHTML=cart.length?cart.map((p,i)=>`<div class="cartline"><span>${p.emoji} ${p.name}</span><span>${money(p.price)} <button onclick="cart.splice(${i},1);document.getElementById('cartCount').textContent=cart.length;renderCart()">×</button></span></div>`).join(''):'<p>Your cart is empty.</p>';document.getElementById('cartTotals').innerHTML=cart.length?`<h3>Total: ${money(cart.reduce((s,p)=>s+p.price,0))}</h3>`:''}
+document.getElementById('sellerForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('sellerResult').innerHTML=`<p><b>Application preview ready.</b><br>Name: ${escapeHtml(document.getElementById('sellerName').value)} · Store: ${escapeHtml(document.getElementById('storeName').value)} · Category: ${escapeHtml(document.getElementById('sellerCategory').value)}<br>This preview has not been submitted online.</p>`});
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function calcCommission(){const amount=Math.max(0,Number(document.getElementById('saleAmount').value)||0),rate=Math.min(100,Math.max(0,Number(document.getElementById('commissionRate').value)||0));document.getElementById('commissionOutput').textContent='Marketplace commission: '+money(amount*rate/100)}
+document.getElementById('year').textContent=new Date().getFullYear();renderCats();renderProducts();calcCommission();
+</script></body></html>
